@@ -11,6 +11,36 @@ Report::Report()
 	//parsing the file and initalizing the structs variables to the file's values
 }
 
+void Report::sort(int a[], int size)					//next 2 is the selection sort we need for the getQuan,Cost, Age
+{
+	int minIndex;
+	for (int i = 0; i < size - 1; i++)
+	{
+		minIndex = i;
+		for (int j = i + 1; j < size; j++)
+		{
+			if (a[j] < a[minIndex])
+			{
+				minIndex = j;
+			}
+		}
+		if (minIndex != i)
+		{
+			swap(a[i], a[minIndex]);
+		}
+		std::cout << "$" << minIndex << endl;
+	}
+}
+
+void Report::swap(int& a, int& b)
+{
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+
 void Report::getList()
 {
 	for (int x = 0; x < 10; x++)
@@ -57,34 +87,5 @@ void Report::sortAge()
 
 Report::~Report()
 {
-}
-
-void sort(int a[], int size)					//everything below is the selection sort we need for the getQuan,Cost, Age
-{
-	int minIndex;
-	for (int i = 0; i < size - 1; i++)
-	{
-		minIndex = i;
-		for (int j = i + 1; j < size; j++)
-		{
-			if (a[j] < a[minIndex])
-			{
-				minIndex = j;
-			}
-		}
-		if (minIndex != i)
-		{
-			swap(a[i], a[minIndex]);
-		}
-		std::cout << "$" << minIndex << endl;
-	}
-}
-
-void swap(int& a, int& b)
-{
-	int temp;
-	temp = a;
-	a = b;
-	b = temp;
 }
 
