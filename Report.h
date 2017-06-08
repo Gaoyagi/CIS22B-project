@@ -15,6 +15,8 @@ class Report
 	int amount;								//the total number of books
 public:
 	Report();
+	void sort(int a[], int size);				//the selection sort methods
+	void swap(int& a, int& b);				//cont
 	void getList();
 	void setWholeSaleValue();
 	double getWholeSaleValue();
