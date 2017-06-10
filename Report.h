@@ -1,4 +1,7 @@
 
+#pragma once
+
+#ifndef Report_H
 #define Report_H
 
 #include <string>
@@ -6,22 +9,30 @@
 
 class Report
 {
+	
 	struct Inven
 	{
-		std::string isbn, title, author, publisher, date, quantity;
+		std::string isbn, title, author, publisher, date;
 		double wholeC, retailP;
+		int quantity;
 	};
 	double wholeV, retailV;					//all of whole sale and all of retail
-	int amount;								//the total number of books
+	int amount;
+	std::string useless[8];
+	//the total number of books
+	//int //we need an array to hold the sorted values for quantity, age and date
+	Inven sample[25];
 public:
 	Report();
-	void sort(int a[], int size);				//the selection sort methods
-	void swap(int& a, int& b);				//cont
+	void sortByQuan(Inven array[], int max);
+	void sortByPrice(Inven array[], int max);
+	int compareDate(std::string a, std::string b);
+	void sortByDate(Inven array[], int max);
 	void getList();
 	void setWholeSaleValue();
 	double getWholeSaleValue();
 	void setRetailValue();
-	double getRtailValue();
+	double getRetailValue();
 	void sortQuan();
 	void sortCost();
 	void sortAge();
